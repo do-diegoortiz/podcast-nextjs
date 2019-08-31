@@ -1,5 +1,8 @@
-export default class extends React.Component {
-    render() {
-        return <h1>!Hola</h1>
-    }
-}
+const Index = () => (
+    <>
+        <h1>Hello World!</h1>
+        <p>Welcome to Next.js Course</p>
+    </> 
+)
+
+export default Index

@@ -1,0 +1,1 @@
+`yarn next dev` to run the app locally
