@@ -1,7 +1,33 @@
 $font-size: 2rem;
 
-.example {
+.title {
     background-color: rgb(223, 126, 126);
+    color: #fff;
     font-size: $font-size;
-    border: 0.1rem solid;
+    text-align: center;
+    padding: 1.5rem;
+    font-family: 'Roboto'
+}
+
+.channels {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-gap: 2rem;
+    justify-items: center;
+}
+
+.channelContainer {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.4rem 0.6rem rgba(0,0,0,0.2);
+    margin: 1rem;
+}
+
+.channelImg {
+    max-width: 100%;
+}
+
+.channelTitle {
+    height: 4rem;
+    padding: 0.5rem;
+    font-size: 1.4rem;
 }
