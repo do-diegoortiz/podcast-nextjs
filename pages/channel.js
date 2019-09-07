@@ -8,13 +8,14 @@ class Channel extends React.Component {
 
         const idChannel = query.id;
 
-        const reqChannel = await fetch(`https://api.audioboom.com/channels/${idChannel}`)
+        const [reqChannel, reqAudio, reqSeries] = await Promise.all([
+            fetch(`https://api.audioboom.com/channels/${idChannel}`),
+            fetch(`https://api.audioboom.com/channels/${idChannel}/audio_clips`),
+            fetch(`https://api.audioboom.com/channels/${idChannel}/child_channels`)
+        ])
+
         const { body: { channel } } = await reqChannel.json();
-
-        const reqAudio = await fetch(`https://api.audioboom.com/channels/${idChannel}/audio_clips`)
         const { body: { audio_clips } } = await reqAudio.json();
-
-        const reqSeries = await fetch(`https://api.audioboom.com/channels/${idChannel}/child_channels`)
         const response = await reqSeries.json();
         const series = response.body.channels;
 

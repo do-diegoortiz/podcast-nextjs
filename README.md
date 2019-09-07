@@ -15,3 +15,7 @@ When you click on the link, NextJS will call the part of js needed to render tha
 ## Prefetch
 The method prefetch doesn't preload getInitialProps, only the payload (HTML, CSS, JS)
 The method only workd in PRODUCTION, not in development
+
+## Promise.all()
+
+To make several request at the same time.
