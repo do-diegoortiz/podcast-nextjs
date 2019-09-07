@@ -1,0 +1,62 @@
+.podcast {
+    display: flex;
+    flex-direction: column;
+    background-color: #393d3f;
+    padding: 1rem;
+    text-align: left;
+    color: #fdfdff;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    background-color: #fdfdff;
+    padding: 1rem;
+    text-align: center;
+}
+
+.back {
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: #fdfdff;
+}
+
+.channelTitle {
+    margin: 0;
+    margin-top: 0.2rem;
+    color: #c6c5b9;
+}
+
+.channelImg {
+    max-width: 80%;
+    border-radius: 0.4rem;
+    margin: 0.5rem auto;
+}
+
+.waveImg{
+    max-width: 50%;
+    position:relative;
+    left: 1rem; 
+    top: 0.6rem;
+}
+
+audio {
+    margin-top: 2em;
+    width: 100%;
+    transition:all 0.5s linear;
+    box-shadow: 2px 2px 4px 0px #00373d;
+    border-radius: 0.5rem;
+
+    &:hover {
+        box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+        transform: scale(1.05);
+    }
+}
+
+.description {
+    // color: #62929e;
+    color: #546a7b;
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-align: justify;
+}

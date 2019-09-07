@@ -1,4 +1,5 @@
 import css from './channel.scss'
+import Link from 'next/link'
 
 // In the query params we have one called id, we're goint to catch it with the initialProps parameter
 class Channel extends React.Component {
@@ -26,11 +27,13 @@ class Channel extends React.Component {
         const { channel, audio_clips, series } = this.props;
 
         const channelClips = audio_clips.map(clip => (
-            <div className={css.clip} key={clip.id}>
-                <h2>{clip.title}</h2>
-                <img className={css.channelImg} src={clip.urls.wave_img} />
-                <p className={css.channelDescription}>{clip.description}</p>
-            </div>
+            <Link key={clip.id}>
+                <a className={css.clip} href={`/podcast?id=${clip.id}`}>
+                    <h2>{clip.title}</h2>
+                    <img className={css.channelImg} src={clip.urls.wave_img} />
+                    <p className={css.channelDescription}>{clip.description}</p>
+                </a>
+            </Link>
         ))
 
         const childChannels = series.map(serie => (
@@ -42,6 +45,7 @@ class Channel extends React.Component {
 
         return <>
             <header className={css.title}>Podcasts</header>
+
             <div className={css.channel}>
                 <h1 className={css.channelTitle}>{channel.title}</h1>
                 <img className={css.channelImg} src={channel.urls.logo_image.original} />
