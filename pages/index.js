@@ -15,7 +15,7 @@ class Index extends React.Component {
         // short for: const channels = this.props.channels
 
         const channelsList = channels.map(channel => (
-            <Link href="/channel" key={channel.id}>
+            <Link href={`/channel?id=${channel.id}`} key={channel.id}>
                 <a className={css.channelContainer}>
                     <img className={css.channelImg} src={channel.urls.logo_image.original} />
                     <h2 className={css.channelTitle}> {channel.title} </h2>
