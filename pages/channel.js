@@ -1,7 +1,7 @@
 import css from './channel.scss'
 import Link from 'next/link'
 import Layout from '../components/layout'
-import Error from 'next/error'
+import Error from './_error'
 
 // In the query params we have one called id, we're goint to catch it with the initialProps parameter
 class Channel extends React.Component {

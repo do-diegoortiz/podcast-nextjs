@@ -29,3 +29,4 @@ You can include things like title and metadata.
 
 Next help us to handle the server error, only passing the statusCode as an attribute
 The `res` prop tell us the status that server replied
+You can also create custom error with a file _error.js inside pages
