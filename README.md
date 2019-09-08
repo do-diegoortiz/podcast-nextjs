@@ -19,3 +19,8 @@ The method only workd in PRODUCTION, not in development
 ## Promise.all()
 
 To make several request at the same time.
+
+## Head component
+
+Here we can add all the things related to the <head> of a regular HTML
+You can include things like title and metadata.

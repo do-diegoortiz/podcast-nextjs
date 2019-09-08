@@ -1,5 +1,6 @@
 import css from './channel.scss'
 import Link from 'next/link'
+import Layout from '../components/layout'
 
 // In the query params we have one called id, we're goint to catch it with the initialProps parameter
 class Channel extends React.Component {
@@ -43,12 +44,10 @@ class Channel extends React.Component {
             </div>
         ))
 
-        return <>
-            <header className={css.title}>Podcasts</header>
-
+        return <Layout title={channel.title}>
             <div className={css.channel}>
-                <h1 className={css.channelTitle}>{channel.title}</h1>
                 <img className={css.channelImg} src={channel.urls.logo_image.original} />
+                <h1 className={css.channelTitle}>{channel.title}</h1>
                 <p className={css.channelDescription}>{channel.description}</p>
             </div>
 
@@ -61,8 +60,7 @@ class Channel extends React.Component {
             <div className={css.clips}>
                 {childChannels}
             </div>
-
-        </>
+        </Layout>
     }
 }
 

@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Livvic&display=swap');
+$font-size: 2rem;
+
+.header {
+    background-color: rgb(223, 126, 126);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.title {
+    color: #fff;
+    font-family: 'Livvic', 'Roboto', sans-serif;
+    font-size: $font-size;
+    text-decoration: none;
+}

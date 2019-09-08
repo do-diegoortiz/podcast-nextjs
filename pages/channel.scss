@@ -1,31 +1,18 @@
 $font-size: 2rem;
 
-.title {
-    background-color: rgb(223, 126, 126);
-    color: #fff;
-    font-size: $font-size;
-    text-align: center;
-    padding: 1.5rem;
-    font-family: 'Roboto'
-}
-
 .channel {
     display: flex;
     flex-flow: column;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.4rem 0.6rem rgba(0,0,0,0.2);
     margin: 1rem;
-    padding: 2rem;
+    padding: $font-size;
 }
 
 .channelImg {
-    max-width: 25%;
+    max-width: 15rem;
 }
 
 .channelTitle {
-    height: 4rem;
-    padding: 1rem;
-    font-size: 2rem;
+    font-size: $font-size;
 }
 
 .channelDescription {
@@ -34,8 +21,9 @@ $font-size: 2rem;
 }
 
 .clipTitle {
-    margin: 3rem;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    text-decoration: underline;
 }
 
 .clips {
@@ -48,12 +36,12 @@ $font-size: 2rem;
 }
 
 .clip {
-    max-width: 30rem;
-    margin: 1rem;
-    padding: 1rem;
-    background-color: rgb(228, 220, 215);
+    max-width: 35rem;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    background-color: rgb(247, 246, 245);
     border-radius: 0.2rem;
-    max-height: 30rem;
+    max-height: 12rem;
     overflow: hidden;
     color: black;
     text-decoration: none;
