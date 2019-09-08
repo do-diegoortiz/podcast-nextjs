@@ -24,3 +24,8 @@ To make several request at the same time.
 
 Here we can add all the things related to the <head> of a regular HTML
 You can include things like title and metadata.
+
+## Error component
+
+Next help us to handle the server error, only passing the statusCode as an attribute
+The `res` prop tell us the status that server replied

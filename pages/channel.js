@@ -1,31 +1,55 @@
 import css from './channel.scss'
 import Link from 'next/link'
 import Layout from '../components/layout'
+import Error from 'next/error'
 
 // In the query params we have one called id, we're goint to catch it with the initialProps parameter
 class Channel extends React.Component {
-    static async getInitialProps({ query }) {
+    static async getInitialProps({ query, res }) {
         // If I use as parameter (data) instead of ({ query }) I would have to say in the next line:
         // let query = data.query
 
         const idChannel = query.id;
 
-        const [reqChannel, reqAudio, reqSeries] = await Promise.all([
-            fetch(`https://api.audioboom.com/channels/${idChannel}`),
-            fetch(`https://api.audioboom.com/channels/${idChannel}/audio_clips`),
-            fetch(`https://api.audioboom.com/channels/${idChannel}/child_channels`)
-        ])
+        try {
+            const [reqChannel, reqAudio, reqSeries] = await Promise.all([
+                fetch(`https://api.audioboom.com/channels/${idChannel}`),
+                fetch(`https://api.audioboom.com/channels/${idChannel}/audio_clips`),
+                fetch(`https://api.audioboom.com/channels/${idChannel}/child_channels`)
+            ])
 
-        const { body: { channel } } = await reqChannel.json();
-        const { body: { audio_clips } } = await reqAudio.json();
-        const response = await reqSeries.json();
-        const series = response.body.channels;
+            if (reqChannel.status >= 400) {
+                res.status = reqChannel.status
+                return {
+                    channel: null,
+                    audio_clips: null,
+                    series: null,
+                    status: reqChannel.status
+                };
+            }
 
-        return { channel, audio_clips, series };
+            const { body: { channel } } = await reqChannel.json();
+            const { body: { audio_clips } } = await reqAudio.json();
+            const response = await reqSeries.json();
+            const series = response.body.channels;
+
+            return { channel, audio_clips, series, status: 200 };
+        } catch (e) {
+            return {
+                channel: null,
+                audio_clips: null,
+                series: null,
+                status: 503
+            };
+        }
     }
 
     render() {
-        const { channel, audio_clips, series } = this.props;
+        const { channel, audio_clips, series, status } = this.props;
+
+        if (status !== 200) {
+            return <Error statusCode={status}></Error>
+        }
 
         const channelClips = audio_clips.map(clip => (
             <Link key={clip.id}>
